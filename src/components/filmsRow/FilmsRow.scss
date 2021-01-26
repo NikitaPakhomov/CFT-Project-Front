@@ -1,0 +1,33 @@
+.filmRow {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+
+    .filmRow__film {
+        color: red;
+        height: 100%;
+        margin-left: -10px;
+        transform: perspective(1000px) rotateY(20deg);
+        transition: 0.2s;
+        z-index: 1;
+        &:hover {
+            transform: scale(1.1);
+            z-index: 10000;
+            transition: 1s;
+            transition-delay: 0.15s;
+        }
+    }
+    .filmRow__img {
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center center;
+    }
+    .filmRow__img-cont {
+        height: 60%;
+    }
+    .filmRow__name {
+    }
+}

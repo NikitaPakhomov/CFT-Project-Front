@@ -1,0 +1,45 @@
+.header {
+    padding: 0 2%;
+    color: white;
+    display: flex;
+    width: 100%;
+    .header__logo {
+        width: 30%;
+        font-size: 46px;
+        font-family: "Bebas Neue", cursive;
+    }
+    .header__nav {
+        width: 40%;
+    }
+    .header__ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        align-items: center;
+    }
+
+    .header__li {
+        display: block;
+        height: 100%;
+        width: 30%;
+    }
+    .header__a {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        color: white;
+        text-decoration: none;
+        transition: transform 0.7s, color 0.3s;
+        text-shadow: white 0 0 5px;
+        &:hover {
+            text-shadow: #802056 0 0 5px;
+            color: #802056;
+            transform: scale(1.2);
+        }
+    }
+}
