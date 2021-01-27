@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Header.scss';
+import { Link } from 'react-router-dom';
 
 const propTypes = {};
 
@@ -13,9 +13,9 @@ const Header = () => {
         </div>
         <nav className='header__nav'>
             <ul className='header__ul'>
-                <li className='header__li'><a href="#" className='header__a'>Фильмы</a></li>
-                <li className='header__li'><a href="#" className='header__a'>Главная</a></li>
-                <li className='header__li'><a href="#" className='header__a'>Топы</a></li>
+                <li className='header__li'><Link to="/films" className='header__a'>Фильмы</Link></li>
+                <li className='header__li'><Link to="/" className='header__a'>Главная</Link></li>
+                <li className='header__li'><Link to="/top" className='header__a'>Топы</Link></li>
             </ul>
         </nav>
     </header>;
