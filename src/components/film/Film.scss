@@ -1,13 +1,13 @@
 .film {
-    width: 8%;
-    height: 90%;
+    width: 50%;
+    height: 60%;
     margin-left: -10px;
-    margin-right: 2.5%;
+    margin-right: 1%;
     &:first-child {
         margin-left: 0;
     }
     .filminfo {
-        color: red;
+        color: white;
         width: 100%;
         height: 90%;
         margin-left: -10px;
@@ -30,14 +30,17 @@
     }
     .filminfo__img {
         max-height: 100%;
+        max-width: 100%;
         object-fit: contain;
         object-position: center center;
     }
     .filminfo__img-cont {
         height: 80%;
+        width: 100%;
     }
     .filminfo__name {
         word-wrap: wrap;
         text-align: center;
+        margin-bottom: 30px;
     }
 }

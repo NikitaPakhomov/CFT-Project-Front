@@ -1,6 +1,7 @@
 import React from 'react';
 import './FullFilm.scss';
 import tomorrowRequest from '../../api/tomorrow';
+import Comments from '../comments/Comments';
 
 class FullFilm extends React.Component {
     state = {
@@ -20,13 +21,15 @@ class FullFilm extends React.Component {
 
     render() {
         return <div className="fullfilm">
-            <div>{this.state.title}</div>
-            <div><img src={this.state.poster} alt="" /></div>
-            <div>Актеры: {this.state.actors || this.smile}</div>
-            <div>Композиторы: {this.state.composers || this.smile}</div>
-            <div>Описание: {this.state.description || this.smile}</div>
-            <div>Жанр: {this.state.genres || this.smile}</div>
-
+            <h1 className="fullfilm__title">{this.state.title}</h1>
+            <div className="fullfilm__img-cont"><img className="fullfilm__img" src={this.state.poster} alt="" /></div>
+            <div className="fullfilm__sunmaininfo">
+                <div className="fullfilm__genres">Жанр: {this.state.genres || this.smile}</div>
+                <div className="fullfilm__actors">Актеры: {this.state.actors || this.smile}</div>
+                <div className="fullfilm__composers">Композиторы: {this.state.composers || this.smile}</div>
+            </div>
+            <div className="fullfilm__description">Описание: {this.state.description || this.smile}</div>
+            <Comments />
         </div>;
     }
 }
