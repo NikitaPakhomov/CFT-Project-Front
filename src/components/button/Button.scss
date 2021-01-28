@@ -1,0 +1,19 @@
+.button {
+    min-width: 100px;
+    font-family: inherit;
+    appearance: none;
+    border: 6px dotted #901056;
+    border-radius: 5px;
+    background: none;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.button:hover {
+    background: #801056;
+    border: 6px solid white;
+}

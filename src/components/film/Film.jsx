@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import Button from '../button/Button';
 import "./Film.scss";
 
 class Film extends React.Component {
@@ -11,7 +12,7 @@ class Film extends React.Component {
                     <div className="filminfo__img-cont"><img className="filminfo__img" src={filminfo.poster} alt="" /></div>
                     <div className="filminfo__name">{filminfo.title}</div>
                 </div >
-                <button className="filminfo__btn" onClick={() => this.props.setActiveTrailer(filminfo.id)}>Посмотреть трейлер</button>
+                <Button text='Посмотреть трейлер' setActiveTrailer={() => this.props.setActiveTrailer(filminfo.id)} />
             </div >
         )
     }

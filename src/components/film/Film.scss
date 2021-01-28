@@ -1,7 +1,11 @@
 .film {
-    width: 10%;
+    width: 8%;
     height: 90%;
     margin-left: -10px;
+    margin-right: 2.5%;
+    &:first-child {
+        margin-left: 0;
+    }
     .filminfo {
         color: red;
         width: 100%;
@@ -19,6 +23,9 @@
             z-index: 10000;
             transition: 1s;
             transition-delay: 0.15s;
+        }
+        &:first-child {
+            margin-left: 0;
         }
     }
     .filminfo__img {

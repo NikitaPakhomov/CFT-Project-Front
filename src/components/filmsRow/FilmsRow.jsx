@@ -3,6 +3,7 @@ import './FilmsRow.scss';
 import PropTypes from 'prop-types';
 import tomorrowRequest from '../../api/tomorrow';
 import Film from '../film/Film';
+import Trailer from '../trailer/Trailer';
 
 const propTypes = {};
 
@@ -32,7 +33,7 @@ class FilmsRow extends React.Component {
         return <div className="filmRowAndTrailer">
             <div className="filmRow">
                 {this.state.activeTrailer > 0 ?
-                    <iframe className="filmRowAndTrailer__trailer" width="560" height="315" src="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> :
+                    <Trailer setActiveTrailer={this.setActiveTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" /> :
                     this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id} setActiveTrailer={this.setActiveTrailer} />))}
             </div>
         </div>;
