@@ -1,7 +1,8 @@
 import React from 'react';
 import './FilmsRow.scss';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import tomorrowRequest from '../../api/tomorrow';
+import Film from '../film/Film';
 
 const propTypes = {};
 
@@ -11,30 +12,32 @@ class FilmsRow extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { films: [1, 2] };
+        this.state = {
+            films: [1, 2],
+            activeTrailer: 0
+        };
     }
+
+    setActiveTrailer = (value) => {
+        this.setState({ activeTrailer: value });
+    }
+
     componentDidMount() {
-        axios.get('http://localhost:8080/films').then(response => {
-            console.log(response.data);
+        tomorrowRequest.get('/films').then(response => {
             const films = response.data.movies;
             this.setState({ films });
         })
     }
     render() {
-        this.state.films.map(element => {
-            console.log(element);
-        })
-
-        return <div className="filmRow">
-            {this.state.films.map(element => {
-                return <div className="filmRow__film" key={element.num}>
-                    <div className="filmRow__img-cont"><img className="filmRow__img" src={element.poster} alt="" /></div>
-                    <div className="filmRow__name">{element.title}</div>
-
-                </div>
-            })}
+        return <div className="filmRowAndTrailer">
+            <div className="filmRow">
+                {this.state.activeTrailer > 0 ?
+                    <iframe className="filmRowAndTrailer__trailer" width="560" height="315" src="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> :
+                    this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id} setActiveTrailer={this.setActiveTrailer} />))}
+            </div>
         </div>;
     }
+
 }
 
 FilmsRow.propTypes = propTypes;

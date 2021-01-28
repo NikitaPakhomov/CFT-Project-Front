@@ -4,24 +4,23 @@ import FilmsRow from './components/filmsRow/FilmsRow';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Main from './components/main/Main';
 import Top from './components/top/Top';
-import { AuthProvider } from './components/Auth/Auth';
-import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
-import Login from './components/login/Login';
+import FullFilm from './components/fullFilm/FullFilm';
+import AllFilms from './allFilms/AllFilms';
 
 
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <PrivateRoute path="/films" component={FilmsRow} />
-          <PrivateRoute path="/top" component={Top} />
-          <Route path="/login" component={Login} />
-          <Redirect to="/" />
-        </Switch>
-      </AuthProvider>
+      <Header />
+      <Switch>
+
+        <Route exact path="/" component={Main} />
+        <Route exact path="/films" component={AllFilms} />
+        <Route path="/films/:filmId" component={FullFilm} />
+        <Route path="/top" component={Top} />
+        <Redirect to="/" />
+      </Switch>
+
     </div >
   );
 }

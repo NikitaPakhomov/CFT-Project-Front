@@ -1,0 +1,36 @@
+.film {
+    width: 10%;
+    height: 90%;
+    margin-left: -10px;
+    .filminfo {
+        color: red;
+        width: 100%;
+        height: 90%;
+        margin-left: -10px;
+        transform: perspective(1000px) rotateY(20deg);
+        transition: 0.2s;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            transform: scale(1.1);
+            z-index: 10000;
+            transition: 1s;
+            transition-delay: 0.15s;
+        }
+    }
+    .filminfo__img {
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center center;
+    }
+    .filminfo__img-cont {
+        height: 80%;
+    }
+    .filminfo__name {
+        word-wrap: wrap;
+        text-align: center;
+    }
+}
