@@ -18,6 +18,7 @@ function App() {
         <Route exact path="/films" component={AllFilms} />
         <Route path="/films/:filmId" component={FullFilm} />
         <Route path="/top" component={Top} />
+        <Route path="/newcomment" />
         <Redirect to="/" />
       </Switch>
 

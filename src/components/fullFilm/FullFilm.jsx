@@ -9,11 +9,9 @@ class FullFilm extends React.Component {
     };
     componentDidMount() {
         tomorrowRequest.get(`/films/${this.props.match.params.filmId}`).then(response => {
-            const filminfo = response.data;
-            console.log(filminfo);
+            const filminfo = response.data[0];
             this.setState({
                 ...filminfo
-
             });
         })
     }
@@ -29,7 +27,7 @@ class FullFilm extends React.Component {
                 <div className="fullfilm__composers">Композиторы: {this.state.composers || this.smile}</div>
             </div>
             <div className="fullfilm__description">Описание: {this.state.description || this.smile}</div>
-            <Comments />
+            <Comments id={this.props.match.params.filmId} />
         </div>;
     }
 }
