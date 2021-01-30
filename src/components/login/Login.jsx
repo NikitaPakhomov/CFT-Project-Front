@@ -38,7 +38,7 @@ class Login extends React.Component {
                 <label htmlFor="login">Login</label>
                 <input type="login" id="login" name="login" onChange={this.handleInputChange} />
                 <label htmlFor="password">Password</label>
-                <input type="password" id="passsword" name="password" onChange={this.handleInputChange} />
+                <input type="password" id="password" name="password" onChange={this.handleInputChange} />
                 <button type="submit">Авторизоваться</button>
                 <Link to="auth" className="login__a">Еще нет аккаунта?</Link>
             </form>}
