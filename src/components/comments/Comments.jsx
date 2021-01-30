@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Comment from '../../Comment/Comment';
+import Comment from '../comment/Comment';
 import tomorrowRequest from '../../api/tomorrow';
 
 
@@ -24,17 +24,6 @@ class Comments extends React.Component {
         })
     }
     render() {
-        // return <div className="comments">
-        //     <form className="comments__form" method="post" action="http://localhost:8080/newcomment"  >
-        //         <input type="text" placeHolder="Время для нового комментария!!!!!!!!" name="text" />
-        //         <button type="submit" on>Отправить</button>
-        //     </form>
-        //     <div className="comments__allcomments">
-        //         {this.state.comments.map((info) => {
-        //             return <Comment commentInfo={info} />
-        //         })}
-        //     </div>
-        // </div >;
         return <div className="comments">
             <form className="comments__form" method="post" action={`http://localhost:8080/films/${this.props.id}`}  >
                 <input type="text" placeHolder="Время для нового комментария!!!!!!!!" name="text" />

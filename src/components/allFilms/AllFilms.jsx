@@ -1,5 +1,5 @@
 import React from 'react';
-import FilmsRow from '../components/filmsRow/FilmsRow';
+import FilmsRow from '../filmsRow/FilmsRow';
 import './AllFilms.scss';
 
 class AllFilms extends React.Component {

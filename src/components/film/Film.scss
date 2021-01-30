@@ -2,7 +2,7 @@
     width: 50%;
     height: 60%;
     margin-left: -10px;
-    margin-right: 1%;
+    margin-right: 5%;
     &:first-child {
         margin-left: 0;
     }
@@ -37,6 +37,7 @@
     .filminfo__img-cont {
         height: 80%;
         width: 100%;
+        text-align: center;
     }
     .filminfo__name {
         word-wrap: wrap;
