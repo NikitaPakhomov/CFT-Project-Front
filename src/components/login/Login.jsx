@@ -1,8 +1,8 @@
 import React from 'react';
 import UserContext from '../../contexts/user-context';
 import './Login.scss';
-import axios from "axios"
 import tomorrowRequest from './../../api/tomorrow';
+import { Link } from 'react-router-dom';
 
 
 class Login extends React.Component {
@@ -14,6 +14,11 @@ class Login extends React.Component {
         tomorrowRequest.post('/login', this.state)
             .then(res => {
                 console.log(res);
+                if (res.data != "Error" && res.data != "") {
+                    this.context.togglesAuthentication();
+                    this.context.setUserName(this.state.login);
+
+                };
             })
             .catch(err => { console.log(err) })
     }
@@ -29,12 +34,13 @@ class Login extends React.Component {
 
     render() {
         return <div className="login">
-            {this.context.authenticated ? <h1>Вы уже авторизованы!</h1> : <form className="login__form" onSubmit={this.submitHandler}>
-                <label for="login">Login</label>
+            {this.context.authenticated ? <h1>Вы авторизованы!</h1> : <form className="login__form" onSubmit={this.submitHandler}>
+                <label htmlFor="login">Login</label>
                 <input type="login" id="login" name="login" onChange={this.handleInputChange} />
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="passsword" name="password" onChange={this.handleInputChange} />
                 <button type="submit">Авторизоваться</button>
+                <Link to="auth" className="login__a">Еще нет аккаунта?</Link>
             </form>}
         </div>;
     }
