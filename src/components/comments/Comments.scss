@@ -1,3 +1,23 @@
+.comments__allcomments {
+    height: 40%;
+}
 .comments {
+    margin-top: 30px;
     color: white;
+    max-height: 400px;
+    .comments__form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .comments__name {
+        text-align: center;
+        width: 15%;
+    }
+    .comments__input {
+        width: 75%;
+    }
+    .comments__btn {
+        width: 10%;
+    }
 }

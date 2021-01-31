@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Comment from '../comment/Comment';
 import tomorrowRequest from '../../api/tomorrow';
 import UserContext from './../../contexts/user-context';
-
+import "./Comments.scss";
 
 
 const propTypes = {};
@@ -50,9 +50,9 @@ class Comments extends React.Component {
         console.log(this.context);
         return <div className="comments">
             <form className="comments__form" onSubmit={this.postForm}  >
-                <input type="text" placeHolder="Время для нового комментария!!!!!!!!" name="text" onChange={this.handleInputChange} />
-                <input type="text" disabled name="user" value={this.context.user} />
-                <button type="submit" on>Отправить</button>
+                <div className="comments__name">{this.context.user}</div>
+                <input className="comments__input" type="text" placeHolder="Время для нового комментария!!!!!!!!" name="text" onChange={this.handleInputChange} />
+                <button className="comments__btn" type="submit" on>Отправить</button>
             </form>
             <div className="comments__allcomments">
                 {this.state.comments ? this.state.comments.map((info) => {
