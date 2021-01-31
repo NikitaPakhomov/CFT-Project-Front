@@ -13,7 +13,6 @@ class Film extends React.Component {
         let { user } = this.context;
         let obj = { id, user };
         tomorrowRequest.post('/usercollection', obj).then((res) => {
-            console.log(res.data);
         })
     }
     render() {
@@ -24,7 +23,7 @@ class Film extends React.Component {
                     <div className="filminfo__img-cont"><img className="filminfo__img" src={filminfo.poster} alt="" /> </div>
                     <div className="filminfo__name">{filminfo.title}</div>
                 </div >
-                <div className="film__plusBtn-cont" onClick={this.postCollection}><img src={plus} alt="plus" className="film__plusBtn" /></div>
+                {this.props.option ? "" : <div className="film__plusBtn-cont" onClick={this.postCollection}><img src={plus} alt="plus" className="film__plusBtn" /></div>}
                 <Button text='Посмотреть трейлер' setActiveTrailer={() => this.props.setActiveTrailer(filminfo.id)} />
             </div >
         )
