@@ -24,13 +24,15 @@ class FilmsRow extends React.Component {
     }
 
     componentDidMount() {
-        tomorrowRequest.get('/films').then(response => {
-            const films = response.data.movies;
+        tomorrowRequest.get(`/${this.props.url}`).then(response => {
+            console.log(response);
+            const films = response.data.movies || response.data || [];
             this.setState({ films });
         })
     }
     render() {
         return <div className="filmRowAndTrailer">
+            <h2>{this.props.h}</h2>
             <div className="filmRow">
                 {this.state.activeTrailer > 0 ?
                     <Trailer setActiveTrailer={this.setActiveTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" /> :

@@ -16,8 +16,14 @@
 }
 .filmRowAndTrailer {
     max-width: 94%;
-    margin: 0 auto 20px;
+    margin: 0 auto 40px;
     display: flex;
-    height: 50%;
+    height: 60%;
     flex-direction: column;
+    h2 {
+        text-emphasis: center;
+        margin: 0 auto;
+        color: white;
+        font-size: 32;
+    }
 }

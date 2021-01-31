@@ -10,12 +10,13 @@ import AllFilms from './components/allFilms/AllFilms';
 import Auth from './components/auth/Auth';
 import Login from './components/login/Login';
 import UserContext from './contexts/user-context';
+import Logout from './components/logout/Logout';
 
 
 class App extends React.Component {
   state = {
-    authenticated: false,
-    user: "anonim",
+    authenticated: localStorage.getItem('authenticated') || false,
+    user: localStorage.getItem('user') || "anonim",
     image: "https://i.pinimg.com/originals/c3/6c/30/c36c30accc811453cc3b70c56f7334fa.png",
   }
   togglesAuthentication = () => {
@@ -46,8 +47,9 @@ class App extends React.Component {
             <Route path="/top" component={Top} />
             <Route path="/login" component={Login} />
             <Route path="/auth" component={Auth} />
+            <Route path="/logout" component={Logout} />
             <Route path="/newcomment" />
-            <Redirect to="/" />
+            {/* <Redirect to="/" /> */}
           </Switch>
         </UserContext.Provider>
       </div >

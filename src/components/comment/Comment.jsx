@@ -1,9 +1,13 @@
 import React from 'react';
+import "./Comment.scss";
 
 const Comment = (props) => {
-    console.log(props.commentInfo);
     return <div className="comment">
-        {props.commentInfo.user} написал {props.commentInfo.message}
+        <div className="comment__user">
+            <div className="comment__img-cont"><img src="" alt="" /></div>
+            <div className="comment__name">{props.commentInfo.user}</div>
+        </div>
+        <div className="comment__message">{props.commentInfo.message}</div>
     </div>;
 }
 

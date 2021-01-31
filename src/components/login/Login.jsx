@@ -17,7 +17,8 @@ class Login extends React.Component {
                 if (res.data != "Error" && res.data != "") {
                     this.context.togglesAuthentication();
                     this.context.setUserName(this.state.login);
-
+                    localStorage.setItem('authenticated', true);
+                    localStorage.setItem('user', this.state.login);
                 };
             })
             .catch(err => { console.log(err) })

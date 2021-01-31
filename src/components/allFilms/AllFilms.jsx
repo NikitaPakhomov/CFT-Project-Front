@@ -12,9 +12,9 @@ class AllFilms extends React.Component {
 
     render() {
         return <div className='allfilms'>
-            <FilmsRow />
-            <FilmsRow />
-            <FilmsRow />
+            <FilmsRow h="Все фильмы" url="films" />
+            <FilmsRow h="Фильмы месяца" url="topfilms" />
+            <FilmsRow h="Фильмы, которые вы добавили в подборку" />
 
         </div>;
     }
