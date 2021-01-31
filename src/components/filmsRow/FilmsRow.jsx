@@ -24,7 +24,13 @@ class FilmsRow extends React.Component {
     }
 
     componentDidMount() {
-        tomorrowRequest.get(`/${this.props.url}`).then(response => {
+        let { url, option } = this.props;
+        if (option) {
+            option = '/' + option;
+        } else {
+            option = "";
+        }
+        tomorrowRequest.get(`/${url}${option}`).then(response => {
             console.log(response);
             const films = response.data.movies || response.data || [];
             this.setState({ films });
@@ -33,11 +39,11 @@ class FilmsRow extends React.Component {
     render() {
         return <div className="filmRowAndTrailer">
             <h2>{this.props.h}</h2>
-            <div className="filmRow">
+            {/* <div className="filmRow">
                 {this.state.activeTrailer > 0 ?
                     <Trailer setActiveTrailer={this.setActiveTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" /> :
                     this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id} setActiveTrailer={this.setActiveTrailer} />))}
-            </div>
+            </div> */}
         </div>;
     }
 

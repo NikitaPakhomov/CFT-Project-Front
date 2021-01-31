@@ -12,7 +12,7 @@ const Logout = () => {
         localStorage.removeItem('authenticated');
         togglesAuthentication();
         setUserName("anonim");
-        setTimeout(() => { setNostate(true) }, 1000);
+        setNostate(true)
     }
     return <div className="logout">
         <h1 className="logout__h">Вы действительно хотите выйти?</h1>

@@ -3,6 +3,7 @@
     height: 60%;
     margin-left: -10px;
     margin-right: 5%;
+    position: relative;
     &:first-child {
         margin-left: 0;
     }
@@ -43,5 +44,22 @@
         word-wrap: wrap;
         text-align: center;
         margin-bottom: 30px;
+    }
+
+    .film__plusBtn-cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+    .film__plusBtn {
+        width: 25px;
+        height: 25px;
+        transition: 1s;
+        border-radius: 100%;
+        &:hover {
+            box-shadow: 0 0 10px white;
+            transform: scale(1.2);
+        }
     }
 }
