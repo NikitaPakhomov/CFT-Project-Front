@@ -15,12 +15,16 @@ class FilmsRow extends React.Component {
 
         this.state = {
             films: [1, 2],
-            activeTrailer: 0
+            activeTrailer: 0,
+            checked: this.props.checked
         };
     }
 
     setActiveTrailer = (value) => {
         this.setState({ activeTrailer: value });
+    }
+    update = () => {
+        this.setState({ checked: this.props.checked })
     }
 
     componentDidMount() {
@@ -41,7 +45,7 @@ class FilmsRow extends React.Component {
             <div className="filmRow">
                 {this.state.activeTrailer > 0 ?
                     <Trailer setActiveTrailer={this.setActiveTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" /> :
-                    this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id} setActiveTrailer={this.setActiveTrailer} option={this.props.option} />))}
+                    this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id} setActiveTrailer={this.setActiveTrailer} option={this.props.option} clickChecker={this.props.clickChecker} />))}
             </div>
         </div>;
     }
