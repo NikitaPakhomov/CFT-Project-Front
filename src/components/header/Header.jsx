@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './Header.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import UserContext from '../../contexts/user-context';
 
 const propTypes = {};
@@ -15,11 +15,11 @@ const Header = () => {
         </div>
         <nav className='header__nav'>
             <ul className='header__ul'>
-                <li className='header__li'><Link to="/films" className='header__a'>Фильмы</Link></li>
-                <li className='header__li'><Link to="/top" className='header__a'>Топы</Link></li>
+                <li className='header__li'><NavLink to="/films" className='header__a' activeClassName="active">Фильмы</NavLink></li>
+                <li className='header__li'><NavLink to="/top" className='header__a' activeClassName="active">Топы</NavLink></li>
             </ul>
         </nav>
-        <div className="header__login"><Link to={authenticated ? "/logout" : "/login"} className='header__a' ><img src={authenticated ? image : ""} alt="" height="40px" />{authenticated ? `${user},вы авторизованы!` : "Авторизоваться"}</Link></div>
+        <div className="header__login"><NavLink to={authenticated ? "/logout" : "/login"} className='header__a' activeClassName="active" ><img src={authenticated ? image : ""} alt="" height="40px" />{authenticated ? `${user},вы авторизованы!` : "Авторизоваться"}</NavLink></div>
     </header >;
 }
 

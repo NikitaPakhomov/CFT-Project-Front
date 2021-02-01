@@ -2,11 +2,12 @@ import React from 'react';
 import UserContext from '../../contexts/user-context';
 import './Login.scss';
 import tomorrowRequest from './../../api/tomorrow';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 
 class Login extends React.Component {
     state = {
+        went: false
     };
     static contextType = UserContext;
     submitHandler = (e) => {
@@ -19,6 +20,7 @@ class Login extends React.Component {
                     this.context.setUserName(this.state.login);
                     localStorage.setItem('authenticated', true);
                     localStorage.setItem('user', this.state.login);
+                    setTimeout(() => { this.setState({ went: true }) }, 1200);
                 };
             })
             .catch(err => { console.log(err) })
@@ -33,6 +35,8 @@ class Login extends React.Component {
         });
     }
 
+
+
     render() {
         return <div className="login">
             {this.context.authenticated ? <h1>Вы авторизованы!</h1> : <form className="login__form" onSubmit={this.submitHandler}>
@@ -43,6 +47,7 @@ class Login extends React.Component {
                 <button type="submit">Авторизоваться</button>
                 <Link to="auth" className="login__a">Еще нет аккаунта?</Link>
             </form>}
+            {this.state.went ? <Redirect from="login" to="/films" /> : ""}
         </div>;
     }
 }

@@ -3,7 +3,6 @@ import React from 'react'
 import './App.css';
 import Header from './components/header/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Main from './components/main/Main';
 import Top from './components/top/Top';
 import FullFilm from './components/fullFilm/FullFilm';
 import AllFilms from './components/allFilms/AllFilms';
@@ -41,7 +40,6 @@ class App extends React.Component {
         }}>
           <Header />
           <Switch>
-            <Route exact path="/" component={Main} />
             <Route exact path="/films" component={AllFilms} />
             <Route path="/films/:filmId" component={FullFilm} />
             <Route path="/top" component={Top} />
@@ -49,7 +47,7 @@ class App extends React.Component {
             <Route path="/auth" component={Auth} />
             <Route path="/logout" component={Logout} />
             <Route path="/newcomment" />
-            {/* <Redirect to="/" /> */}
+            <Redirect to="/films" />
           </Switch>
         </UserContext.Provider>
       </div >
