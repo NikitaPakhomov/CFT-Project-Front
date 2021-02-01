@@ -14,7 +14,7 @@ class FilmsRow extends React.Component {
         super(props);
 
         this.state = {
-            films: [1, 2],
+            films: [],
             activeTrailer: 0,
             checked: this.props.checked
         };
@@ -45,7 +45,7 @@ class FilmsRow extends React.Component {
             <div className="filmRow">
                 {this.state.activeTrailer != 0 ?
                     <Trailer setActiveTrailer={this.setActiveTrailer} trailer={this.state.activeTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" /> :
-                    this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id} setActiveTrailer={this.setActiveTrailer} option={this.props.option} clickChecker={this.props.clickChecker} />))}
+                    this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id + this.props.pos} setActiveTrailer={this.setActiveTrailer} option={this.props.option} clickChecker={this.props.clickChecker} />))}
             </div>
         </div>;
     }
