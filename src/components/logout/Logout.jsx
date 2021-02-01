@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useContext, useState } from 'react';
 import './Logout.scss';
 import UserContext from './../../contexts/user-context';
@@ -18,8 +19,7 @@ const Logout = () => {
         setNostate(true)
     }
     function no(e) {
-        e.preventDefault();
-        setUserName("anonim");
+        e.preventDefault();       
         setYesstate(false);
     }
     return <div className="logout">

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import "./Comment.scss";
 import shef from "../../images/shef.jpg";

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import './Top.scss';
 import FilmsRow from '../filmsRow/FilmsRow';
