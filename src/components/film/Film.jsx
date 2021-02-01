@@ -24,7 +24,7 @@ class Film extends React.Component {
                     <div className="filminfo__name">{filminfo.title}</div>
                 </div >
                 {this.props.option ? "" : <div className="film__plusBtn-cont" onClick={() => { this.postCollection(); this.props.clickChecker() }}><img src={plus} alt="plus" className="film__plusBtn" /></div>}
-                <Button text='Посмотреть трейлер' setActiveTrailer={() => this.props.setActiveTrailer(filminfo.id)} />
+                <Button text='Посмотреть трейлер' setActiveTrailer={() => this.props.setActiveTrailer(filminfo.trailer)} />
             </div >
         )
     }
