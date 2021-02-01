@@ -39,13 +39,30 @@ class FilmsRow extends React.Component {
             this.setState({ films });
         })
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.checked !== this.props.checked) { this.setState({ foo: this.props.checked }) }
+        if (this.props.option) {
+            let { url, option } = this.props;
+            if (option) {
+                option = '/' + option;
+            } else {
+                option = "";
+            }
+            tomorrowRequest.get(`/${url}${option}`).then(response => {
+                const films = response.data.movies || response.data || [];
+                this.setState({ films });
+            })
+        }
+    }
+
     render() {
         return <div className="filmRowAndTrailer">
             <h2>{this.props.h}</h2>
-            <div className="filmRow">
+            <div className="filmRow" check={this.state.checked}>
                 {this.state.activeTrailer != 0 ?
                     <Trailer setActiveTrailer={this.setActiveTrailer} trailer={this.state.activeTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" /> :
-                    this.state.films.map(filminfo => (< Film filminfo={filminfo} key={filminfo.id + this.props.pos} setActiveTrailer={this.setActiveTrailer} option={this.props.option} clickChecker={this.props.clickChecker} />))}
+                    this.state.films.map(filminfo => (< Film checked={this.state.checked} filminfo={filminfo} key={filminfo.id + this.props.pos} setActiveTrailer={this.setActiveTrailer} option={this.props.option} clickChecker={this.props.clickChecker} />))}
             </div>
         </div>;
     }
