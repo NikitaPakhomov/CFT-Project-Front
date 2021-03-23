@@ -1,9 +1,9 @@
 /* eslint-disable */
-import React from 'react';
-import './FilmsRow.scss';
-import tomorrowRequest from '../../api/tomorrow';
-import Film from '../film/Film';
-import Trailer from '../trailer/Trailer';
+import React from "react";
+import "./FilmsRow.scss";
+import tomorrowRequest from "../../api/tomorrow";
+import Film from "../film/Film";
+import Trailer from "../trailer/Trailer";
 
 class FilmsRow extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class FilmsRow extends React.Component {
     if (option) {
       option = `/${option}`;
     } else {
-      option = '';
+      option = "";
     }
     tomorrowRequest.get(`/${url}${option}`).then((response) => {
       const films = response.data.movies || response.data || [];
@@ -38,7 +38,7 @@ class FilmsRow extends React.Component {
       if (option) {
         option = `/${option}`;
       } else {
-        option = '';
+        option = "";
       }
       tomorrowRequest.get(`/${url}${option}`).then((response) => {
         const films = response.data.movies || response.data || [];
@@ -47,35 +47,41 @@ class FilmsRow extends React.Component {
     }
   }
 
-    update = () => {
-      this.setState({ checked: this.props.checked });
-    }
+  update = () => {
+    this.setState({ checked: this.props.checked });
+  };
 
-    setActiveTrailer = (url) => {
-      this.setState({ activeTrailer: url });
-    }
+  setActiveTrailer = (url) => {
+    this.setState({ activeTrailer: url });
+  };
 
-    render() {
-      return (
-        <div className="filmRowAndTrailer">
-          <h2>{this.props.h}</h2>
-          <div className="filmRow" check={this.state.checked}>
-            {this.state.activeTrailer != 0
-              ? <Trailer setActiveTrailer={this.setActiveTrailer} trailer={this.state.activeTrailer} URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0" />
-              : this.state.films.map((filminfo) => (
-                <Film
-                  checked={this.state.checked}
-                  filminfo={filminfo}
-                  key={filminfo.id + this.props.pos}
-                  setActiveTrailer={this.setActiveTrailer}
-                  option={this.props.option}
-                  clickChecker={this.props.clickChecker}
-                />
-              ))}
-          </div>
+  render() {
+    return (
+      <div className="filmRowAndTrailer">
+        <h2>{this.props.h}</h2>
+        <div className="filmRow" check={this.state.checked}>
+          {this.state.activeTrailer != 0 ? (
+            <Trailer
+              setActiveTrailer={this.setActiveTrailer}
+              trailer={this.state.activeTrailer}
+              URL="https://www.youtube-nocookie.com/embed/XtMThy8QKqU?controls=0"
+            />
+          ) : (
+            this.state.films.map((filminfo) => (
+              <Film
+                checked={this.state.checked}
+                filminfo={filminfo}
+                key={filminfo.id + this.props.pos}
+                setActiveTrailer={this.setActiveTrailer}
+                option={this.props.option}
+                clickChecker={this.props.clickChecker}
+              />
+            ))
+          )}
         </div>
-      );
-    }
+      </div>
+    );
+  }
 }
 
 export default FilmsRow;
